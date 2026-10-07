@@ -1,0 +1,441 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Fredoka', sans-serif;
+}
+
+body {
+  background-color: #ff1493; /* Diubah ke pink gelap */
+  color: #1e1b4b;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Navigasi Pindah Halaman */
+.page {
+  display: none;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.page.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ----------------------------------
+   PAGE 1: LANDING PAGE (SUNBURST 2 KOLOM)
+---------------------------------- */
+#page-landing {
+  background-color: #ff66cc; /* Diubah ke pink terang */
+  overflow: hidden;
+  padding: 40px 20px;
+}
+
+.sunburst {
+  position: absolute;
+  width: 200vmax;
+  height: 200vmax;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: repeating-conic-gradient(
+    #ff66cc 0deg 15deg, /* Pink Terang */
+    #ff1493 15deg 30deg /* Pink Gelap */
+  );
+  z-index: 1;
+}
+
+.landing-content {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.96);
+  padding: 30px;
+  border-radius: 24px;
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0px #000;
+  width: 100%;
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Responsive Desktop Layout */
+@media (min-width: 768px) {
+  .landing-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .landing-col-left, .landing-col-right {
+    flex: 1;
+  }
+}
+
+.landing-col-left {
+  text-align: center;
+}
+
+.landing-title {
+  font-family: 'Bungee', cursive;
+  font-size: 2rem;
+  color: #a3e635; /* Diubah ke hijau menyesuaikan teks DECEMAND! di poster */
+  text-shadow: 3px 3px 0px #000;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.landing-date {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff; /* Teks putih */
+  background-color: #ff1493; /* Latar pink gelap */
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 12px;
+  border: 2px solid #000;
+  margin-bottom: 16px;
+}
+
+.btn-landing {
+  font-family: 'Bungee', cursive;
+  width: 100%;
+  background-color: #ffffff; /* Diubah ke putih agar seperti box di poster */
+  color: #000000;
+  border: 3px solid #000;
+  padding: 14px 20px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 5px 5px 0px #000;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-landing:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px #000;
+  background-color: #e5e5e5;
+}
+
+.btn-landing:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000;
+}
+
+.btn-landing.sold-out {
+  background-color: #64748b !important;
+  color: #cbd5e1 !important;
+  cursor: not-allowed;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.info-section {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.info-box {
+  border: 3px solid #000;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.price-box {
+  background-color: #ffffff; /* Diubah ke putih */
+  text-align: center;
+}
+
+.price-tag {
+  font-family: 'Bungee', cursive;
+  font-size: 0.8rem;
+  color: #000;
+}
+
+.price-value {
+  font-family: 'Bungee', cursive;
+  font-size: 1.8rem;
+  color: #ff1493; /* Diubah ke pink */
+  text-shadow: 2px 2px 0px #000;
+  margin: 2px 0;
+}
+
+.price-value span {
+  font-size: 0.85rem;
+  color: #000;
+  text-shadow: none;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+}
+
+.duration-info {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #431407;
+}
+
+.schedule-box {
+  background-color: #ffe6f2; /* Diubah ke pink super pudar */
+}
+
+.info-title {
+  font-family: 'Bungee', cursive;
+  font-size: 0.95rem;
+  color: #000;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.session-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.session-name {
+  font-family: 'Bungee', cursive;
+  background-color: #ff1493; /* Diubah ke pink */
+  color: #fff;
+  border: 2px solid #000;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+}
+
+.session-detail {
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+.session-detail strong {
+  color: #000;
+}
+
+.reg-time {
+  font-weight: 700;
+  color: #dc2626;
+  font-size: 0.8rem;
+}
+
+.session-divider {
+  height: 2px;
+  background-color: #ffb3d9; /* Diubah ke pink garis pembatas */
+  margin: 8px 0;
+}
+
+/* ----------------------------------
+   KOLOM KANAN: RULES & DETAILS
+---------------------------------- */
+.rules-box {
+  background-color: #ffffff; /* Diubah ke putih */
+  height: 100%;
+}
+
+.rules-list {
+  list-style-type: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1e1b4b;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rules-list li {
+  position: relative;
+  padding-left: 20px;
+  line-height: 1.4;
+}
+
+.rules-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: #ff1493; /* Bullet warna pink */
+  font-weight: 900;
+}
+
+.rules-list strong {
+  color: #000;
+}
+
+.rules-list em {
+  color: #ff1493;
+  font-style: italic;
+}
+
+/* ----------------------------------
+   PAGE 2: FORM PEMBELIAN
+---------------------------------- */
+#page-form {
+  background: repeating-conic-gradient(
+    #ff66cc 0deg 15deg,
+    #ff1493 15deg 30deg
+  );
+  padding: 20px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 440px;
+  padding: 20px;
+  z-index: 2;
+}
+
+.card {
+  position: relative;
+  background-color: #ffffff;
+  padding: 28px;
+  border-radius: 20px;
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0px #000;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  font-weight: 800;
+  color: #ff1493;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.btn-back:hover {
+  text-decoration: underline;
+}
+
+.form-title {
+  font-family: 'Bungee', cursive;
+  text-align: center;
+  font-size: 1.4rem;
+  color: #a3e635; /* Hijau sama dengan judul */
+  text-shadow: 2px 2px 0px #000;
+  margin-bottom: 18px;
+}
+
+.stock-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stock-card {
+  flex: 1;
+  background-color: #ff1493; /* Diubah ke pink gelap */
+  padding: 10px;
+  border-radius: 12px;
+  border: 3px solid #000;
+  text-align: center;
+  box-shadow: 3px 3px 0px #000;
+}
+
+.session-title {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.stock-number {
+  font-family: 'Bungee', cursive;
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-shadow: 1px 1px 0px #000;
+}
+
+.stock-card.sold-out-card {
+  background-color: #ef4444 !important;
+}
+
+.stock-card.sold-out-card .session-title,
+.stock-card.sold-out-card .stock-number {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  color: #1e1b4b;
+  text-transform: uppercase;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 3px solid #000;
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 600;
+  outline: none;
+}
+
+input:focus, select:focus {
+  background-color: #f1f5f9;
+  border-color: #ff1493; /* Outline jadi pink pas diklik */
+}
+
+.btn {
+  font-family: 'Bungee', cursive;
+  width: 100%;
+  padding: 14px;
+  background-color: #a3e635; /* Tombol submit hijau */
+  color: #000; /* Teks hitam */
+  border: 3px solid #000;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px #000;
+  margin-top: 10px;
+  transition: all 0.15s ease;
+}
+
+.btn:hover {
+  background-color: #86efac;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #000;
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000;
+}
+
+.btn:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.message {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 10px;
+  border: 3px solid #000;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.message.success { background-color: #86efac; color: #064e3b; }
+.message.error { background-color: #fca5a5; color: #7f1d1d; }
+.hidden { display: none; }
